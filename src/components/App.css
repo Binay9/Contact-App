@@ -4,7 +4,6 @@
 }
 
 body {
-    /* rgb(233, 233, 233) */
     background-color: #F8F8FF;
     text-align: center;
   }
@@ -29,25 +28,24 @@ body {
 
 .row {
   display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 5px;
-  /* justify-content: space-evenly;
-   */
+  justify-content: space-between;
+  /* flex-wrap: wrap; */
+  /* justify-content: space-around; */
+  /* align-items: center; */
+  margin: 7px 0;
 }
 
 .row-item1 {
-  /* flex: 50%; */
-  width: 40%;
+  width: 35%;
   background-color: #f1f1f1;
-  padding: 20px;
-  border-right-style: groove;
-  border-color: rgb(97, 94, 94);
+  padding: 25px;
+  margin: 10px;
 }
 
 input[type=text], [type=email]{
   width: 100%;
   padding: 12px 20px;
-  margin: 8px 0;
+  margin: 5px 0;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -70,15 +68,33 @@ input[type=submit]:hover {
   background-color: #1a721f;
 }
 
-label.form-label {
-  text-align: justify;
+.form-label{
+    display: inline-block;
+    width: 100%;
+    margin-top: 7px;
+    padding-top: 5px;
+    text-align: left;
 }
 
-/* .row-item2 {
-  flex: 50%;
+
+.row-item2 {
+  width: 55%;
   background-color: #f1f1f1;
-  padding: 20px;
-} */
+  padding: 25px;
+  margin: 10px;
+}
+
+.myList {
+   display: flex;
+   justify-content: space-between;
+   padding: 5px;
+
+}
+
+
+
+
+
 
 
 /* .App {

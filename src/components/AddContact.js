@@ -6,12 +6,12 @@ class AddContact extends React.Component {
             <div className='row-item1'>
                 <h3 className='subHead'>Contact List</h3>
                 <form>
-                    <div className="mb-3">
+                    <div>
                         <label htmlFor="name" className="form-label">Name</label>
                         <input type="text" className="form-control" id="name" placeholder="Enter name here" />
                     </div>
 
-                    <div className="mb-3">
+                    <div>
                         <label htmlFor="email" className="form-label">Email</label>
                         <input type="email" className="form-control" id="email" placeholder="Enter email here"/>
                     </div>
