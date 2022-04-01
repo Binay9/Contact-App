@@ -1,15 +1,19 @@
 import React from 'react';
-import  user from '../images/user.jpg';
+import user from '../images/user.jpg';
 
 const ContactCard = (props) => {
-    const {id, name, email} = props.contact;
+    const { id, name, email } = props.contact;
     return (
-        <div key={id} className='myList'>
+        <div className='myList'>
             <img className="userLogo" src={user} alt="user" />
             <div>{name}</div>
             <div>{email}</div>
             <div>
-                <i className="material-icons">delete</i>
+                <button>
+                    <i className="material-icons"
+                        onClick={() => props.clickHandler(id)}
+                    >delete</i>
+                </button>
             </div>
         </div>
     );
