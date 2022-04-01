@@ -1,3 +1,4 @@
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import Header from './Header';
 import AddContact from './AddContact';
@@ -5,25 +6,22 @@ import ContactList from './ContactList';
 
 function App() {
 
-  const contacts = [
-    {
-      id: "1",
-      name: "David Bhai",
-      email: "david@mail.com",
-    },
+const LOCAL_STORAGE_KEY = "contacts";
+const [contacts, setContacts] = useState([]);
 
-    {
-      id: "2",
-      name: "Saroj Kumar",
-      email: "saroj@hotmail.com",
-    },
-  ];
+const addContactHandler = (contact) => {
+  setContacts([...contacts, contact]);
+};
+
+useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
+}, [contacts]);
 
   return (
     <div className="myMain">
       <Header />
       <div className='row'>
-        <AddContact />
+        <AddContact addContactHandler={addContactHandler} />
         <ContactList contacts={contacts} />
       </div>
 
