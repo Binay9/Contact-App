@@ -1,56 +1,68 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
-class AddContact extends React.Component {
-    state = {
-        name: "",
-        email: "",
-    };
 
-    add = (e) => {
+
+export default function AddContact(props) {
+
+    const [info, setInfo] = useState({});
+
+    const navigate = useNavigate();
+
+    const handleChange = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        setInfo(values => ({ ...values, [name]: value }))
+
+    }
+
+    const add = (e) => {
+
         e.preventDefault();
-        if(this.state.name === "" || this.state.email === "") {
+
+        if (info.name === "" || info.email === "") {
             alert("All input are required !!");
             return
         }
-        this.props.addContactHandler(this.state);
-        this.setState({name: '', email: ''});
+        props.addContactHandler(info);
+        setInfo({ name: '', email: '' });
+        navigate("/");
+
     };
 
-    render() {
-        return (
-            <div className='row-item1'>
-                <h3 className='subHead'>Contact List</h3>
-                <form onSubmit={this.add}>
-                    <div>
-                        <label htmlFor="name" className="form-label">Name</label>
-                        <input 
-                            type="text" 
-                            className="form-control" 
-                            id="name" 
-                            placeholder="Enter name here" 
-                            value={this.state.name}
-                            onChange={(e) => this.setState({name: e.target.value})}
-                        />
-                    </div>
+    return (
+        <div className='row-item1'>
+            <h3 className='subHead'>Contact List</h3>
+            <form onSubmit={add}>
+                <div>
+                    <label htmlFor="name" className="form-label">Name</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="name"
+                        name="name"
+                        placeholder="Enter name here"
+                        value={info.name || ""}
+                        onChange={handleChange}
+                    />
+                </div>
 
-                    <div>
-                        <label htmlFor="email" className="form-label">Email</label>
-                        <input 
-                            type="email" 
-                            className="form-control" 
-                            id="email" 
-                            placeholder="Enter email here"
-                            value={this.state.email}
-                            onChange={(e) => this.setState({email: e.target.value})}
-                        />
-                    </div>
-                  
-                    <input type="submit" value="Submit" />
-                </form>
+                <div>
+                    <label htmlFor="email" className="form-label">Email</label>
+                    <input
+                        type="email"
+                        className="form-control"
+                        id="email"
+                        name="email"
+                        placeholder="Enter email here"
+                        value={info.email || ""}
+                        onChange={handleChange}
+                    />
+                </div>
 
-            </div>
-        );
-    }
+                <button className='myBtn' type="submit" value="Submit" >Submit</button>
+            </form>
+
+        </div>
+    );
 }
-
-export default AddContact;

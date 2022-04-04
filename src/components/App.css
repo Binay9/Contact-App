@@ -52,7 +52,7 @@ input[type=text], [type=email]{
   box-sizing: border-box;
 }
 
-input[type=submit] {
+.myBtn{
   width: 18%;
   background-color: #486849;
   color: white;
@@ -64,7 +64,8 @@ input[type=submit] {
   font-weight: bold;
 }
 
-input[type=submit]:hover {
+/* input[type=submit] */
+.myBtn{
   background-color: #1a721f;
 }
 

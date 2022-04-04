@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {Routes, Route, } from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
 import './App.css';
 import Header from './Header';
@@ -11,7 +12,7 @@ function App() {
   const [contacts, setContacts] = useState([]);
 
   const addContactHandler = (contact) => {
-    setContacts([...contacts, {id: uuid(), ...contact}]);
+    setContacts([...contacts, { id: uuid(), ...contact }]);
   };
 
   const removeContactHandler = (id) => {
@@ -36,11 +37,16 @@ function App() {
 
   return (
     <div className="myMain">
-      <Header />
-      <div className='row'>
-        <AddContact addContactHandler={addContactHandler} />
-        <ContactList contacts={contacts} getContactId={removeContactHandler}/>
-      </div>
+        <Header />
+        <Routes>
+        <Route path='/' element={<ContactList contacts={contacts} getContactId={removeContactHandler} />} />
+        <Route path='add' element={<AddContact addContactHandler={addContactHandler} />} />
+        </Routes>
+
+      {/* <div className='row'>
+          <AddContact addContactHandler={addContactHandler} />
+          <ContactList contacts={contacts} getContactId={removeContactHandler} />
+        </div> */}
 
     </div>
   );
