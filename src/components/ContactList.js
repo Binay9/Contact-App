@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import ContactCard from './ContactCard';
 
 const ContactList = (props) => {
@@ -20,8 +20,8 @@ const ContactList = (props) => {
     })
 
     return (
-        <div>
-            <h3>Contact List</h3>
+        <div className='mainContent'>
+            <h3 className='subHead'>Contact List</h3>
             <Link to="/add">
                 <button className='myBtn'>Add Contact</button>
             </Link>

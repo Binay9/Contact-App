@@ -31,8 +31,8 @@ export default function AddContact(props) {
     };
 
     return (
-        <div className='row-item1'>
-            <h3 className='subHead'>Contact List</h3>
+        <div className='mainContent'>
+            <h3 className='subHead'>Add Contact</h3>
             <form onSubmit={add}>
                 <div>
                     <label htmlFor="name" className="form-label">Name</label>

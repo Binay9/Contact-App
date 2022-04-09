@@ -26,24 +26,18 @@ body {
   margin-bottom: 5px;
 }
 
-.row {
-  display: flex;
-  justify-content: space-between;
-  /* flex-wrap: wrap; */
-  /* justify-content: space-around; */
+.mainContent
+{
+  /* text-align: center; */
+  width: 80%;
   /* align-items: center; */
-  margin: 7px 0;
-}
-
-.row-item1 {
-  width: 35%;
   background-color: #f1f1f1;
   padding: 25px;
-  margin: 10px;
+  margin: auto;
 }
 
 input[type=text], [type=email]{
-  width: 100%;
+  width: 50%;
   padding: 12px 20px;
   margin: 5px 0;
   display: inline-block;
@@ -64,26 +58,20 @@ input[type=text], [type=email]{
   font-weight: bold;
 }
 
-/* input[type=submit] */
-.myBtn{
+.myBtn:hover{
   background-color: #1a721f;
 }
 
 .form-label{
     display: inline-block;
-    width: 100%;
+    width: 80%;
     margin-top: 7px;
     padding-top: 5px;
-    text-align: left;
+    text-align: center;
 }
 
 
-.row-item2 {
-  width: 55%;
-  background-color: #f1f1f1;
-  padding: 25px;
-  margin: 10px;
-}
+/* contact list / add contact */
 
 .myList {
    display: flex;
@@ -95,6 +83,32 @@ input[type=text], [type=email]{
 .userLogo{
   height: 25px;
   width: 25px;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  font-weight: bold;
+  color: blue;
+}
+
+a:active {
+  text-decoration: underline;
+}
+
+.deleteBtn{
+  border: none;
+  border-radius: 4px;
+}
+
+.deleteBtn:hover {
+  background-color: rgba(187, 0, 0, 0.808);
 }
 
 
