@@ -97,7 +97,7 @@ a:hover {
   font-weight: bold;
   color: blue;
 }
-
+/* 
 a:active {
   text-decoration: underline;
 }
@@ -105,7 +105,7 @@ a:active {
 .deleteBtn{
   border: none;
   border-radius: 4px;
-}
+} */
 
 .deleteBtn:hover {
   background-color: rgba(187, 0, 0, 0.808);
