@@ -23,9 +23,9 @@ const ContactList = (props) => {
         <div className='mainContent'>
             <h3 className='subHead'>Contact List</h3>
             <Link to="/add">
-                <button className='myBtn'>Add Contact</button>
+                <button className='myBtn'>Add Contact</button>  
             </Link>
-            <div className='row-item2'>{renderContactList}</div>
+            <div className='row-item'>{renderContactList}</div>
         </div>
     );
 };

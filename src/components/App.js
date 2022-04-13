@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Routes, Route, } from 'react-router-dom';
+import { Routes, Route, } from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
 import api from '../api/contacts';
 import './App.css';
@@ -47,10 +47,10 @@ function App() {
       // if (retriveContacts) setContacts(retriveContacts);
       const getAllContacts = async () => {
         const allContacts = await retriveContacts();
-        if(allContacts) setContacts(allContacts);
+        if (allContacts) setContacts(allContacts);
       };
       getAllContacts();
-    },[]);
+    }, []);
 
   // useEffect(() => {
   //   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
@@ -58,15 +58,15 @@ function App() {
 
   return (
     <div className="myMain">
-        <Header />
-        <Routes>
+      <Header />
+      <Routes>
         <Route path='/' element={<ContactList contacts={contacts} getContactId={removeContactHandler} />} />
         <Route path="/contact/:id" element={<ContactDetail />} />
         <Route path='add' element={<AddContact addContactHandler={addContactHandler} />} />
 
-        <Route path="*" element={<main style={{ padding: "1rem"}}><p>Nothing here ...</p></main>} />
+        <Route path="*" element={<main style={{ padding: "1rem" }}><p>Nothing here ...</p></main>} />
 
-        </Routes>
+      </Routes>
 
     </div>
   );

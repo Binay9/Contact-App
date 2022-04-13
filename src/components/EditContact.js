@@ -1,31 +1,39 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
-function AddContact(props) {
+
+
+export default function EditContact(props) {
 
     const [info, setInfo] = useState({});
+
     const navigate = useNavigate();
+
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
         setInfo(values => ({ ...values, [name]: value }))
+
     }
 
-    const add = (e) => {
+    const edit = (e) => {
+
         e.preventDefault();
-        if(info.name === undefined || "" || info.email === undefined || "") {
+
+        if (info.name === "" || info.email === "") {
             alert("All input are required !!");
             return
         }
         props.addContactHandler(info);
         setInfo({ name: '', email: '' });
         navigate("/");
+
     };
 
     return (
         <div className='mainContent'>
             <h3 className='subHead'>Add Contact</h3>
-            <form onSubmit={add}>
+            <form onSubmit={edit}>
                 <div>
                     <label htmlFor="name" className="form-label">Name</label>
                     <input
@@ -58,5 +66,3 @@ function AddContact(props) {
         </div>
     );
 }
-
-export default AddContact;

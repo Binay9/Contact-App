@@ -71,14 +71,52 @@ input[type=text], [type=email]{
 }
 
 
-/* contact list / add contact */
+/* contact list */
+
+.row-item {
+  display: grid;
+}
+
 
 .myList {
    display: flex;
+   /* justify-content: space-between;
+   align-items: flex-end; */
    justify-content: space-between;
+   align-items: center;
    padding: 5px;
-
+   text-align: left;
 }
+
+.flexBasis {
+  flex-basis: 250px;
+}
+
+
+
+.button {
+  border: none;
+  height: 35px;
+  width: 35px;
+}
+
+.btnDelete {
+  margin-right: 20px;
+}
+
+.btnDelete:hover {
+  color: rgb(218, 56, 56);
+  
+}
+
+.btnEdit:hover {
+  color:rgb(2, 138, 216)
+}
+
+.button > i {
+  font-size: 23px;
+}
+
 
 .userLogo{
   height: 25px;
@@ -88,14 +126,14 @@ input[type=text], [type=email]{
 a:link {
   text-decoration: none;
 }
-
+/* 
 a:visited {
   text-decoration: none;
-}
+} */
 
 a:hover {
-  font-weight: bold;
-  color: blue;
+  font-style: italic;
+  color: black;
 }
 /* 
 a:active {
@@ -107,9 +145,9 @@ a:active {
   border-radius: 4px;
 } */
 
-.deleteBtn:hover {
+/* .deleteBtn:hover {
   background-color: rgba(187, 0, 0, 0.808);
-}
+} */
 
 
 
