@@ -5,6 +5,7 @@ function AddContact(props) {
 
     const [info, setInfo] = useState({});
     const navigate = useNavigate();
+
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -12,8 +13,9 @@ function AddContact(props) {
     }
 
     const add = (e) => {
+
         e.preventDefault();
-        if(info.name === undefined || "" || info.email === undefined || "") {
+        if (info.name === undefined || "" || info.email === undefined || "") {
             alert("All input are required !!");
             return
         }

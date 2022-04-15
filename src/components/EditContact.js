@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 
 export default function EditContact(props) {
 
-    const [info, setInfo] = useState({});
+    let location = useLocation();
+    
+    const { id, name, email } = location.state.contact;
+
+    const [info, setInfo] = useState({id, name, email,});
 
     const navigate = useNavigate();
 
@@ -16,7 +20,7 @@ export default function EditContact(props) {
 
     }
 
-    const edit = (e) => {
+    const update = (e) => {
 
         e.preventDefault();
 
@@ -32,8 +36,8 @@ export default function EditContact(props) {
 
     return (
         <div className='mainContent'>
-            <h3 className='subHead'>Add Contact</h3>
-            <form onSubmit={edit}>
+            <h3 className='subHead'>Update Contact</h3>
+            <form onSubmit={update}>
                 <div>
                     <label htmlFor="name" className="form-label">Name</label>
                     <input

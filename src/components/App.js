@@ -7,10 +7,10 @@ import Header from './Header';
 import AddContact from './AddContact';
 import ContactList from './ContactList';
 import ContactDetail from './ContactDetail';
+import EditContact from './EditContact';
 
 function App() {
 
-  // const LOCAL_STORAGE_KEY = "contacts";
   const [contacts, setContacts] = useState([]);
 
   //RetrieveContacts
@@ -22,39 +22,39 @@ function App() {
   //AddContact
   const addContactHandler = async (contact) => {
 
-    const request = {
-      id: uuid(),
-      ...contact,
-    };
+    let newName = contact.name;
+    newName = newName.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
+    Object.assign(contact, { name: newName });
+
+    const request = { id: uuid(), ...contact, };
 
     const response = await api.post("/contacts", request);
     setContacts([...contacts, response.data]);
   };
 
+  //EditContact
+  const editContactHandeler = () => {
+
+  };
+
   //DeleteContact
   const removeContactHandler = async (id) => {
+
     await api.delete(`/contacts/${id}`);
     const newContactList = contacts.filter((contact) => {
       return contact.id !== id;
     });
-
     setContacts(newContactList);
-  }
+  };
 
   useEffect(
     () => {
-      // const retriveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-      // if (retriveContacts) setContacts(retriveContacts);
       const getAllContacts = async () => {
         const allContacts = await retriveContacts();
         if (allContacts) setContacts(allContacts);
       };
       getAllContacts();
     }, []);
-
-  // useEffect(() => {
-  //   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
-  // }, [contacts]);
 
   return (
     <div className="myMain">
@@ -63,9 +63,8 @@ function App() {
         <Route path='/' element={<ContactList contacts={contacts} getContactId={removeContactHandler} />} />
         <Route path="/contact/:id" element={<ContactDetail />} />
         <Route path='add' element={<AddContact addContactHandler={addContactHandler} />} />
-
+        <Route path="edit" element={<EditContact editContactHandeler={editContactHandeler} />} />
         <Route path="*" element={<main style={{ padding: "1rem" }}><p>Nothing here ...</p></main>} />
-
       </Routes>
 
     </div>
