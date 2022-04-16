@@ -37,7 +37,6 @@ const ContactCard = (props) => {
                     </button>
                 </Link>
                 {/* Delete */}
-                {/* <button type="button" className="button btnDelete" onClick={() => props.clickHandler(id)}> */}
                 <button type="button" className="button btnDelete" onClick={onClickConfrim}>
                     <i className="bi-trash3" title='Delete'></i>
                 </button>

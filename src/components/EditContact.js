@@ -6,29 +6,23 @@ import { useLocation, useNavigate } from "react-router-dom";
 export default function EditContact(props) {
 
     let location = useLocation();
-    
     const { id, name, email } = location.state.contact;
-
     const [info, setInfo] = useState({id, name, email,});
-
     const navigate = useNavigate();
 
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
         setInfo(values => ({ ...values, [name]: value }))
-
     }
 
     const update = (e) => {
-
         e.preventDefault();
-
         if (info.name === "" || info.email === "") {
             alert("All input are required !!");
             return
         }
-        props.addContactHandler(info);
+        props.updateContactHandler(info);
         setInfo({ name: '', email: '' });
         navigate("/");
 
@@ -64,7 +58,7 @@ export default function EditContact(props) {
                     />
                 </div>
 
-                <button className='myBtn' type="submit" value="Submit" >Submit</button>
+                <button className='myBtn' type="submit" value="Submit" >Update</button>
             </form>
 
         </div>
