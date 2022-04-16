@@ -12,6 +12,8 @@ import EditContact from './EditContact';
 function App() {
 
   const [contacts, setContacts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
   //RetrieveContactsFromApi
   const retriveContacts = async () => {
@@ -52,6 +54,22 @@ function App() {
     setContacts(newContactList);
   };
 
+  const searchInputHandler = (inputText) => {
+    setSearchTerm(inputText);
+    if (inputText !== "") {
+      const newContactList = contacts.filter((contact) => {
+        return Object.values(contact)
+          .join(" ")
+          .toLowerCase()
+          .includes(inputText.toLowerCase());
+      });
+      setSearchResults(newContactList);
+    }
+    else {
+      setSearchResults(contacts);
+    }
+  }
+
   useEffect(() => {
     const getAllContacts = async () => {
       const allContacts = await retriveContacts();
@@ -60,11 +78,22 @@ function App() {
     getAllContacts();
   }, []);
 
+
+  // --- Return ---
   return (
     <div className="myMain">
       <Header />
       <Routes>
-        <Route path='/' element={<ContactList contacts={contacts} getContactId={removeContactHandler} />} />
+        <Route path='/'
+          element={
+            <ContactList
+              contacts={searchTerm.length < 1 ? contacts : searchResults}
+              getContactId={removeContactHandler}
+              term={searchTerm}
+              searchInput={searchInputHandler}
+            />
+          }
+        />
         <Route path="/contact/:id" element={<ContactDetail />} />
         <Route path='add' element={<AddContact addContactHandler={addContactHandler} />} />
         <Route path="edit" element={<EditContact updateContactHandler={updateContactHandler} />} />

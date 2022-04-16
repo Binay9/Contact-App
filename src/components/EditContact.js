@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { useLocation, useNavigate } from "react-router-dom";
-
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 
 export default function EditContact(props) {
 
     let location = useLocation();
     const { id, name, email } = location.state.contact;
-    const [info, setInfo] = useState({id, name, email,});
+    const [info, setInfo] = useState({ id, name, email, });
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -30,7 +29,12 @@ export default function EditContact(props) {
 
     return (
         <div className='mainContent'>
-            <h3 className='subHead'>Update Contact</h3>
+            <div className='flexView'>
+                <h3 className='subHead'>Update Contact</h3>
+                <Link to="/">
+                    <button className="mySmBtn">Back to Contact List</button>
+                </Link>
+            </div>
             <form onSubmit={update}>
                 <div>
                     <label htmlFor="name" className="form-label">Name</label>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function AddContact(props) {
 
@@ -26,7 +26,12 @@ function AddContact(props) {
 
     return (
         <div className='mainContent'>
-            <h3 className='subHead'>Add Contact</h3>
+            <div className='flexView'>
+                <h3 className='subHead'>Add Contact</h3>
+                <Link to="/">
+                    <button className="mySmBtn">Back to Contact List</button>
+                </Link>
+            </div>
             <form onSubmit={add}>
                 <div>
                     <label htmlFor="name" className="form-label">Name</label>

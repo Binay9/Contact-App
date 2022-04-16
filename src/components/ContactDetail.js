@@ -3,8 +3,8 @@ import { useLocation, Link } from "react-router-dom";
 import user from "../images/user.jpg";
 
 export default function ContactDetail() {
+  
   let location = useLocation();
-
   const { name, email } = location.state.contact;
 
   return (
